@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="script.js"></script>
+   <title>Friends</title>
+</head>
+<body>
+   <div id="wrapper">
+        <form action="/addFriend", method="post">
+            <h1>Friends:</h1>
+            <table id="friendTable">
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+                {% for f in friend: %}
+                    <tr>
+                        <td>{{f['name']}}</td>
+                        <td>{{f['age']}}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+            <h1>Add a Friend:</h1>
+            <p>Name:</p> <input type="text" name="name"><br>
+            <p>Age:</p> <input id="ageText" type="text" name="age"><br>
+            <input id="submitButton" type="submit">
+       </form>
+   </div>
+</body>
+</html>
