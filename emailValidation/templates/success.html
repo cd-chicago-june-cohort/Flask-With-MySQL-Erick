@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="script.js"></script>
+        <title>Success</title>
+    </head>
+    <body>
+        <div id="success">
+            <h2>The email address you entered ({{newEmail}}) is a Valid email address! Thank you!</h2>
+            <h1>Email Addresses Entered:</h1>
+            {% for e in email %}
+                <h4>{{e['email']}}------{{e['created_at']}}</h4>
+            {% endfor %}
+            <a href="/"><input type="submit" id="goBack" value="Go Back"></a>
+        </div>
+    </body>
+</html>

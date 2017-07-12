@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="script.js"></script>
+        <title>Email</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <form action="/process", method="post">
+                <p>Email Address:</p><input type="text" name="email"><br>
+                <input id="button" type="submit">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for i in messages %}
+                            <p>{{i}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </form>
+        </div>
+    </body>
+</html>

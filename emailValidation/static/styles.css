@@ -1,0 +1,20 @@
+#wrapper{
+    width: 300px;
+    padding: 50px;
+}
+#success{
+    width: 400px;
+    padding: 50px;
+}
+p{
+    display: inline-block;
+}
+#button{
+    margin-left: 180px;
+}
+h4{
+    margin-left: 20px;
+}
+#goBack{
+    margin-left: 300px;
+}
