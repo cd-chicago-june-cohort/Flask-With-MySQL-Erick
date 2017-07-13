@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{url_for('static', filename='wall.css')}}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <title>TITLE</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="header">
+                <h1 class="header">CodingDojo Wall</h1>
+                <div id="headerInfo">
+                    <p class="header">Welcome, {{session['firstname']}}    |    <a href="/">log off</a></p>   
+                </div>
+            </div>
+            <div id="postMessageBody">
+                <form id="postMessageBox" action="/post" method="post">
+                    <h1>Post a message</h1>
+                    <textarea name="message" id="message" rows="10" cols="144"></textarea>
+                    <input id="submitPostButton" type="submit" name="" value="Post a message">
+                </form>
+            </div>
+            {% for messages in messagesFromQuery %}
+                <p class="userPostInfo">{{messages['name']}} - {{messages['date']}}</p>
+                <div class="messageBox">
+                    <p>{{messages['message']}}</p>
+                        {% for comments in commentsFromQuery %}
+                            {% if comments['messages_id'] == messages['id'] %}
+                                <div>
+                                    <p class="userPostInfo">{{comments['name']}} - {{comments['created_at'].strftime("%B %-d, %Y")}}</p>
+                                    <p class="userCommentInfo">{{comments['comment']}}</p>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    <div>
+                        <form action="/comment" method="post">
+                            <textarea name="comment" id="commentBox" cols="138" rows="5"></textarea>
+                            <input type="hidden" name="messageID" value="{{messages['id']}}">
+                            <input id="commentButton" type="submit" value="Post a comment">
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>
