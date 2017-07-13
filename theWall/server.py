@@ -41,8 +41,6 @@ def login():
     else:
         session['id'] = checkDB[0]['id']
         session['firstname'] = checkDB[0]['firstname']
-        print session['firstname']
-        flash('Successfully logged in!')
         return redirect('/wall')
     
 @app.route('/register', methods = ['POST'])
@@ -77,7 +75,6 @@ def register():
 
 @app.route('/wall')
 def wall():
-
     queryMessages = 'select concat(firstname, " ", lastname) as name, date_format(messages.created_at, "%b %D %Y") as date, message, messages.created_at, messages.id from messages join users on users_id=users.id order by created_at desc'
     messages = mysql.query_db(queryMessages)
     queryComments = 'select concat(firstname, " " ,lastname) as name, comments.created_at, comment, messages_id from users join comments on users.id = users_id'

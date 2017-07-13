@@ -5,6 +5,7 @@
 #wrapper{
     width: 970px;
     overflow: hidden;
+    margin-left: 200px;
 }
 #header{
     height: 75px;
