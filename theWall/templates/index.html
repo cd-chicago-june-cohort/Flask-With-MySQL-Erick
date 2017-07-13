@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <title>Login/Register</title>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="header">
+                <p id="welcome">Welcome to Facebook 2.0!</p>
+                <h3>Please Login or Register to stalk people!</h3>
+            </div>
+            <div class="box">
+                <form action="/login" method="post">
+                    <h1>Login</h1>
+                    <p class="loginP">Email:</p><input id="email" type="text" name="email"><br>
+                    <p class="loginP">Password:</p><input id="password" type="password"  name="password">
+                    <input id="LoginButton" type="submit" value="Login!">
+                    <img src="{{url_for('static', filename='facebook.jpg')}}" alt="facebook">
+                </form>
+            </div>
+            <div class="box">
+                <form action="/register", method="post">
+                    <h1>Sign Up</h1>
+                    <h2>Its free and anyone can join</h2>
+                    <p class="loginP">First Name:</p><input id="firstname" type="text" name="firstName"><br>
+                    <p class="loginP">Last Name:</p><input id="lastname" type="text" name="lastName"><br>
+                    <p class="loginP">Email:</p><input id="email" type="text" name="email"><br>
+                    <p class="loginP">Password:</p><input id="password" type="password"  name="password"><br>
+                    <p class="loginP">Confirm Password:</p><input id="confirmpassword" type="password" name="confirmPassword">
+                    <input id="SignUpButton" type="submit" value="Sign Up!">
+                </form>
+            </div>
+            <div id="footer">
+                <p>Connect with friends and the world around you on Facebook.</p>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        {% for i in messages %}
+                            <p>{{i}}</p>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+    </body>
+</html>

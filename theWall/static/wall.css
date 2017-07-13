@@ -1,0 +1,66 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+#wrapper{
+    width: 970px;
+}
+#header{
+    height: 40px;
+    border: 2px solid black;
+    padding: 10px;
+    display: inline-block;
+    background-color: #3B5998;
+    color: white;
+    box-shadow: 2px 2px 5px black; 
+}
+.header{
+    display: inline-block;
+}
+#headerInfo{
+    width: 200px;
+    height: 40px;
+    margin-left: 504px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 10px;
+}
+#postMessageBody{
+    padding: 40px;
+}
+#submitPostButton{
+    margin-top: 10px;
+    margin-left: 753px;
+    background-color: #3B5998;
+    color: white;
+    width: 130px;
+    height: 40px;
+    box-shadow: 2px 2px 5px black;
+    font-size: 15px;
+}
+.messageBox{
+    padding: 40px;
+    width: 800px;
+    margin-left: 40px;
+}
+.userPostInfo{
+    margin-left: 40px;
+    margin-top: 25px;
+    font-weight: bold;
+}
+#commentBox{
+    margin-top: 10px;
+}
+#commentButton{
+    margin-left: 715px;
+    color: white;
+    width: 130px;
+    height: 40px;
+    background-color: green;
+    font-size: 15px;
+    box-shadow: 2px 2px 5px black;
+}
+.userCommentInfo{
+    margin-left: 60px;
+    margin-top: 25px;
+}
